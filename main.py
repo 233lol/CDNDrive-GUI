@@ -3,6 +3,7 @@ import tkinter
 from tkinter import ttk
 from tkinter import filedialog
 import os
+
 root = tkinter.Tk()
 root.title('CDNDrive GUI')
 root['height'] = 200
@@ -37,6 +38,18 @@ label3 = tkinter.Label(root,
                        anchor='e',
                        width=80)
 label3.place(x=5, y=65, width=50, height=20)
+addr = tkinter.StringVar(value='4')
+tre = tkinter.Label(root,
+                    text='线程:',
+                    justify=tkinter.RIGHT,
+                    anchor='e',
+                    width=80)
+tre.place(x=145, y=65, width=50, height=20)
+entrytre = tkinter.Entry(root,
+                         width=80,
+                         textvariable=addr)
+entrytre.place(x=200, y=65, width=60, height=20)
+
 comboSite = ttk.Combobox(root,
                          values=["bili", "baijia", "csdn", "sohu",
                                  "jian", "weibo", "ali", "163", "osc", "sogou"],
@@ -69,7 +82,8 @@ entrypsw.place(x=60, y=125, width=300, height=20)
 
 def download():
     name = entryLink.get()
-    com = "CDNDrive download "+name
+    tre = entrytre.get()
+    com = "CDNDrive download "+"-t "+tre+" "+name
     os.system(com)
 
 
@@ -99,8 +113,9 @@ def pip():
 
 def upload():
     site = comboSite.get()
+    tre = entrytre.get()
     file = filedialog.askopenfilename(initialdir=os.getcwd())
-    com = "CDNDrive upload "+site+" "+"\""+file+"\""+">>shell.txt"
+    com = "CDNDrive upload "+site+" -t "+tre+" "+"\""+file+"\""
     os.system(com)
 
 
