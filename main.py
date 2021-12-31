@@ -83,7 +83,7 @@ entrypsw.place(x=60, y=125, width=300, height=20)
 def download():
     name = entryLink.get()
     tre = entrytre.get()
-    com = "CDNDrive download "+"-t "+tre+" "+name
+    com = "cdrive download "+"-t "+tre+" "+name
     os.system(com)
 
 
@@ -97,7 +97,7 @@ def loign():
     usr = entryuser.get()
     psw = entrypsw.get()
     site = comboSite.get()
-    com = "CDNDrive login "+site+" "+usr+" "+psw
+    com = "cdrive login "+site+" "+usr+" "+psw
     os.system(com)
 
 
@@ -108,14 +108,14 @@ buttonlogin.place(x=130, y=170, width=50, height=20)
 
 
 def pip():
-    os.system("pip install CDNDrive")
+    os.system("pip install cdrive")
 
 
 def upload():
     site = comboSite.get()
     tre = entrytre.get()
     file = filedialog.askopenfilename(initialdir=os.getcwd())
-    com = "CDNDrive upload "+site+" -t "+tre+" "+"\""+file+"\""
+    com = "cdrive upload "+site+" -t "+tre+" "+"\""+file+"\""
     os.system(com)
 
 
@@ -132,7 +132,7 @@ buttonpip.place(x=80, y=170, width=50, height=20)
 def loignc():
     cookies = entryCookie.get()
     site = comboSite.get()
-    com = "CDNDrive cookies "+site+" "+cookies
+    com = "cdrive cookies "+site+" SESSDATA="+cookies
     os.system(com)
 
 
